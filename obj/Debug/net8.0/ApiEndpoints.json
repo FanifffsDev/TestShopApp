@@ -1,0 +1,28 @@
+[
+  {
+    "ContainingType": "TestShopApp.App.Controllers.HomeController",
+    "Method": "Handle",
+    "RelativePath": "home",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TestShopApp.App.Controllers.HomeController",
+    "Method": "HandleInit",
+    "RelativePath": "home/init",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "TestShopApp.App.Controllers.TelegramInitData",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

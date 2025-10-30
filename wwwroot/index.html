@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>Test WebApp</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <h1>Подключение к Telegram WebApp...</h1>
+    <div id="status"></div>
+
+    <script>
+    const tg = window.Telegram.WebApp;
+    tg.ready();
+
+    // Отправляем initData обратно на сервер
+    async function sendInitData() {
+      try {
+        const response = await fetch("/home/init", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(tg.initDataUnsafe)
+        });
+
+        const result = await response.json();
+        console.log("Ответ от сервера:", result);
+
+        document.getElementById("status").innerText =
+          "✅ Авторизация прошла успешно\n\n" + JSON.stringify(result, null, 2);
+      } catch (err) {
+        console.error("Ошибка:", err);
+        document.getElementById("status").innerText = "❌ Ошибка при отправке данных";
+      }
+    }
+
+    sendInitData();
+    </script>
+</body>
+</html>
