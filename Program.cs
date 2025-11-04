@@ -24,7 +24,6 @@ builder.Services.AddSingleton<ITelegramBotClient>(provider =>
 builder.Services.AddDbContext<AppDbContext>(opt => 
     opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-
 builder.Services.AddScoped<ITelegramDataProcessor, TelegramDataProcessor>();
 
 builder.Services.AddScoped<ITgUserRepo, TgUserRepo>(); //////////////////////////////

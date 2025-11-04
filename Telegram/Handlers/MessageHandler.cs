@@ -12,7 +12,7 @@ namespace TestShopApp.Telegram.Handlers
         private readonly ITelegramBotClient _bot = bot;
         private readonly CommandProvider _commandProvider = commandProvider;
         public async Task Handle(Message message, TgUser user)
-        {
+        {        
             if (message.From == null || string.IsNullOrEmpty(message.Text)) return;
 
             /*var user = await _userRepo.GetUser(message.From.Id);

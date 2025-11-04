@@ -6,3 +6,6 @@
 /obj
 /wwwroot
 wwwroot/index.html
+/.vs
+/obj
+/bin
