@@ -6,5 +6,6 @@ namespace TestShopApp.Common.Repo
     {
         Task<ExecutionResult> AddUser(TgUser data);
         Task<ExecutionResult<TgUser>> GetUser(long userId);
+        Task<ExecutionResult<TgUser>> UpdateUser(TgUser data);
     }
 }
