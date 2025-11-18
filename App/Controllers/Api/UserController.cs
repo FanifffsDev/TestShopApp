@@ -1,4 +1,9 @@
+using System.Net;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Telegram.Bot.Types;
+using TestShopApp.App.Filters;
+using TestShopApp.Common.Data;
 using TestShopApp.Common.Repo;
 using TestShopApp.Telegram.Utils;
 
@@ -6,46 +11,54 @@ namespace TestShopApp.App.Controllers.Api;
 
 [ApiController]
 [Route("api/v1/users")]
-public class UserController(ITgUserRepo userRepo, ITelegramDataProcessor initDataVerifier) : ControllerBase
+public class UserController(ITgUserRepo userRepo) : ControllerBase
 {
     private readonly ITgUserRepo _userRepo = userRepo;
-    private readonly ITelegramDataProcessor _initDataVerifier = initDataVerifier;
     
     [Route("bake")]
     [HttpPost]
-    public IActionResult Bake([FromBody] string initData)
+    public async Task<IActionResult> Bake([FromBody] TelegramInitDataRaw data)
     {
-        var isVerified = TgAuthUtils.VerifyInitData(initData);
+        (bool isVerified, TgUser user) = TgAuthUtils.VerifyInitData(data.initData);
 
+        if (!isVerified)
+        {
+            return new ObjectResult(ApiResponse.Fail())
+            {
+                StatusCode = (int)HttpStatusCode.Unauthorized,
+                ContentTypes = { "application/json" }          
+            };
+        }
+
+        //await _userRepo.AddUser(user);
+        
+        Response.Headers["Authorization"] = "tma " + data.initData;
         return Ok(new
         {
-            Message = isVerified ? "Good data" : "Bad data"
+            Message = user
         });
+    }
+
+    [Route("profile")]
+    [HttpGet]
+    [AuthRequired]
+    public async Task<IActionResult> Profile()
+    {
+        var profile = await _userRepo.GetUser((Request.HttpContext.Items["User"] as TgUser).Id);
+        
+        if(profile == null)
+            return NotFound();
+        
+        return new ObjectResult(ApiResponse.Ok().WithField("profile", profile.Value))
+        {
+            StatusCode = (int)HttpStatusCode.OK,
+            ContentTypes = { "application/json" }          
+        };
     }
 }
 
-public class TelegramInitDataWrapper
+public class TelegramInitDataRaw
 {
-    public TelegramInitData? initData { get; set; }
-}
-
-public class TelegramInitData
-{
-    public TelegramUser? user { get; set; }
-    public string? query_id { get; set; }
-    public string? auth_date { get; set; }
-    public string? hash { get; set; }
-    public string? signature { get; set; }
-}
-
-public class TelegramUser
-{
-    public bool allows_write_to_pm { get; set; }
-    public long id { get; set; }
-    public bool is_premium { get; set; }
-    public string? first_name { get; set; }
-    public string? last_name { get; set; }
-    public string? username { get; set; }
-    public string? photo_url { get; set; }
-    public string? language_code { get; set; }
+    public string? initData { get; set; }
+    public long timestamp { get; set; }
 }

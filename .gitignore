@@ -9,3 +9,5 @@ wwwroot/index.html
 /.vs
 /obj
 /bin
+.DS_Store
+.env

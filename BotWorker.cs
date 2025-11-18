@@ -10,8 +10,6 @@ namespace TestShopApp
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-
-            return;
             _botClient.StartReceiving(
                 updateHandler: async (bot, update, ct) =>
                 {

@@ -30,7 +30,7 @@ public class ExceptionMiddleware
             var errorResponse = new
             {
                 success = false,
-                error = ex.Message
+                error = "Unhandled exception"
             };
 
             var json = JsonSerializer.Serialize(errorResponse);

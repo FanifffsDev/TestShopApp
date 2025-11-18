@@ -1,7 +1,6 @@
 ﻿using Telegram.Bot;
 using Telegram.Bot.Types;
 using TestShopApp.Common.Data;
-using TestShopApp.Common.Repo;
 using TestShopApp.Telegram.Commands;
 using TestShopApp.Telegram.Utils;
 

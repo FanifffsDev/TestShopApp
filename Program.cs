@@ -1,3 +1,4 @@
+using DotNetEnv;
 using Telegram.Bot;
 using TestShopApp;
 using TestShopApp.App.Middlewares;
@@ -15,16 +16,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
+Env.Load();
+
 builder.Services.AddSingleton<ITelegramBotClient>(provider =>
 {
-    var token = "8344409652:AAHcBXyAMfqsZxZ3M5tSqlIKjKw6IEfLJ8g";                                             
+    var token = Environment.GetEnvironmentVariable("TOKEN");                                             
     return new TelegramBotClient(token);
 });
 
 builder.Services.AddDbContext<AppDbContext>(opt => 
     opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-builder.Services.AddScoped<ITelegramDataProcessor, TelegramDataProcessor>();
 
 builder.Services.AddScoped<ITgUserRepo, TgUserRepo>(); //////////////////////////////
 

@@ -1,19 +1,21 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
+using System.Text.Json;
+using TestShopApp.Common.Data;
 
 namespace TestShopApp.Telegram.Utils
 {
     public static class TgAuthUtils
     {
-        private readonly static string _token = "8344409652:AAHcBXyAMfqsZxZ3M5tSqlIKjKw6IEfLJ8g";
-        public static bool VerifyInitData(string initDataRaw)
+        private readonly static string _token = Environment.GetEnvironmentVariable("TOKEN");
+        public static (bool, TgUser?) VerifyInitData(string initDataRaw)
         {
             if (string.IsNullOrEmpty(initDataRaw) || string.IsNullOrEmpty(_token))
-                return false;
+                return (false, null);
 
             var parsedData = ParseQuery(initDataRaw);
-            if (!parsedData.TryGetValue("hash", out string? receivedHash))
-                return false;
+            if (!parsedData.TryGetValue("hash", out string? receivedHash) || parsedData.Count != 5)
+                return (false, null);
 
             parsedData.Remove("hash");
 
@@ -30,7 +32,26 @@ namespace TestShopApp.Telegram.Utils
             var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(dataCheckString));
             var computedHashHex = BitConverter.ToString(computedHash).Replace("-", "").ToLowerInvariant();
 
-            return computedHashHex == receivedHash;
+
+            if (computedHashHex == receivedHash)
+            {
+                try
+                {
+                    var data = JsonSerializer.Deserialize<TgUser>(parsedData["user"],
+                        new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+                    if (data == null)
+                        return (false, null);
+
+                    return (true, data);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"[VerifiedTgData] Deserialization error: {ex.Message}");
+                    return (false, null);
+                }
+            }
+            return (false, null);
         }
 
         private static Dictionary<string, string> ParseQuery(string query)
