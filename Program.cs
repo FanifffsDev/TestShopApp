@@ -17,7 +17,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddSingleton<ITelegramBotClient>(provider =>
 {
-    var token = "8344409652:AAHcBXyAMfqsZxZ3M5tSqlIKjKw6IEfLJ8g";                                             
+    var token = "TOKEN";                                             
     return new TelegramBotClient(token);
 });
 
