@@ -27,7 +27,7 @@ builder.Services.AddSingleton<ITelegramBotClient>(provider =>
 builder.Services.AddDbContext<AppDbContext>(opt => 
     opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddScoped<ITgUserRepo, TgUserRepo>(); //////////////////////////////
+builder.Services.AddScoped<IUserRepo, UserRepo>(); //////////////////////////////
 
 builder.Services.AddScoped<UpdateHandler>();
 builder.Services.AddScoped<MessageHandler>();

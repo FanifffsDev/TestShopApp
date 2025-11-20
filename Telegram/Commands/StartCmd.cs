@@ -14,7 +14,7 @@ namespace TestShopApp.Telegram.Commands
 
         public bool Admin => false;
 
-        public async Task<ExecutionResult> Execute(ITelegramBotClient bot, TgUser user, Message msg)
+        public async Task<ExecutionResult> Execute(ITelegramBotClient bot, AuthUser user, Message msg)
         {
             //Пока не нужно;
             return new ExecutionResult(success: true);

@@ -30,7 +30,7 @@ namespace TestShopApp.Telegram.Handlers
                         try
                         {
                             using var messageScope = _scopeFactory.CreateScope();
-                            var scopedUserRepo = messageScope.ServiceProvider.GetRequiredService<ITgUserRepo>();
+                            var scopedUserRepo = messageScope.ServiceProvider.GetRequiredService<IUserRepo>();
                             var scopedBot = messageScope.ServiceProvider.GetRequiredService<ITelegramBotClient>();
                             var scopedCommandProvider = messageScope.ServiceProvider.GetRequiredService<CommandProvider>();
                             var scopedMessageHandler = new MessageHandler(scopedBot, scopedCommandProvider);
@@ -52,7 +52,7 @@ namespace TestShopApp.Telegram.Handlers
             return Task.CompletedTask;
         }
 
-        private async Task ProcessMessageAsync(ITelegramBotClient bot, Message message, ITgUserRepo userRepo, MessageHandler messageHandler)
+        private async Task ProcessMessageAsync(ITelegramBotClient bot, Message message, IUserRepo userRepo, MessageHandler messageHandler)
         {
             if (message.From == null) return;
 

@@ -11,3 +11,8 @@ wwwroot/index.html
 /bin
 .DS_Store
 .env
+/obj
+/obj
+/obj
+/obj
+/wwwroot

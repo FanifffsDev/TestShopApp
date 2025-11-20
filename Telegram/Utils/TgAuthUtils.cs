@@ -8,7 +8,7 @@ namespace TestShopApp.Telegram.Utils
     public static class TgAuthUtils
     {
         private readonly static string _token = Environment.GetEnvironmentVariable("TOKEN");
-        public static (bool, TgUser?) VerifyInitData(string initDataRaw)
+        public static (bool, AuthUser?) VerifyInitData(string initDataRaw)
         {
             if (string.IsNullOrEmpty(initDataRaw) || string.IsNullOrEmpty(_token))
                 return (false, null);
@@ -37,7 +37,7 @@ namespace TestShopApp.Telegram.Utils
             {
                 try
                 {
-                    var data = JsonSerializer.Deserialize<TgUser>(parsedData["user"],
+                    var data = JsonSerializer.Deserialize<AuthUser>(parsedData["user"],
                         new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
 
                     if (data == null)

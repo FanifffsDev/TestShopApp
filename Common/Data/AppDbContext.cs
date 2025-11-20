@@ -4,5 +4,5 @@ namespace TestShopApp.Common.Data;
 
 public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
 {
-    public DbSet<TgUser> Users { get; set; }
+    public DbSet<User> Users { get; set; }
 }

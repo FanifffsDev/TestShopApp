@@ -2,9 +2,9 @@
 
 namespace TestShopApp.Common.Data
 {
-    public class TgUser
+    public class AuthUser
     {
-        [JsonPropertyName("user")]
+        [JsonPropertyName("id")]
         public long Id { get; set; }
         
         [JsonPropertyName("is_premium")]

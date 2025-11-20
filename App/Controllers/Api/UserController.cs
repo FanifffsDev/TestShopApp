@@ -1,7 +1,5 @@
 using System.Net;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using Telegram.Bot.Types;
 using TestShopApp.App.Filters;
 using TestShopApp.Common.Data;
 using TestShopApp.Common.Repo;
@@ -11,15 +9,15 @@ namespace TestShopApp.App.Controllers.Api;
 
 [ApiController]
 [Route("api/v1/users")]
-public class UserController(ITgUserRepo userRepo) : ControllerBase
+public class UserController(IUserRepo userRepo) : ControllerBase
 {
-    private readonly ITgUserRepo _userRepo = userRepo;
+    private readonly IUserRepo _userRepo = userRepo;
     
     [Route("bake")]
     [HttpPost]
     public async Task<IActionResult> Bake([FromBody] TelegramInitDataRaw data)
     {
-        (bool isVerified, TgUser user) = TgAuthUtils.VerifyInitData(data.initData);
+        (bool isVerified, AuthUser user) = TgAuthUtils.VerifyInitData(data.initData);
 
         if (!isVerified)
         {
@@ -29,31 +27,62 @@ public class UserController(ITgUserRepo userRepo) : ControllerBase
                 ContentTypes = { "application/json" }          
             };
         }
-
-        //await _userRepo.AddUser(user);
         
         Response.Headers["Authorization"] = "tma " + data.initData;
         return Ok(new
         {
-            Message = user
+            sucess = true
         });
     }
 
-    [Route("profile")]
-    [HttpGet]
+    [Route("register")]
+    [HttpPost]
     [AuthRequired]
-    public async Task<IActionResult> Profile()
+    public async Task<IActionResult> Register([FromBody] RegisterData data)
     {
-        var profile = await _userRepo.GetUser((Request.HttpContext.Items["User"] as TgUser).Id);
+        AuthUser authUser = Request.HttpContext.Items["User"] as AuthUser;
         
-        if(profile == null)
-            return NotFound();
+        if(authUser == null)
+            return BadRequest();
         
-        return new ObjectResult(ApiResponse.Ok().WithField("profile", profile.Value))
+        var res = await _userRepo.GetUser(authUser.Id);
+
+        if (res.success)
         {
-            StatusCode = (int)HttpStatusCode.OK,
-            ContentTypes = { "application/json" }          
-        };
+            return new ObjectResult(ApiResponse.Fail().WithField("reason", "user already exists"))
+            {
+                StatusCode = (int)HttpStatusCode.BadRequest,
+                ContentTypes = { "application/json" }          
+            };
+        }
+
+        res = await _userRepo.AddUser(new User
+        {
+            Id = authUser.Id,
+            FirstName = data.firstName,
+            LastName = data.lastName,
+            ThirdName = data.thirdName,
+            Group = data.group,
+            Subject = data.subject,
+            Role = data.role,
+        });
+
+        if (res.success)
+        {
+            return new ObjectResult(ApiResponse.Ok().WithField("redirectTo", "/home"))
+            {
+                StatusCode = (int)HttpStatusCode.OK,
+                ContentTypes = { "application/json" }          
+            };
+        }
+        else
+        {
+            return new ObjectResult(ApiResponse.Fail().WithField("reason", res.message))
+            {
+                StatusCode = (int)HttpStatusCode.BadRequest,
+                ContentTypes = { "application/json" }          
+            };
+        }
     }
 }
 
@@ -61,4 +90,14 @@ public class TelegramInitDataRaw
 {
     public string? initData { get; set; }
     public long timestamp { get; set; }
+}
+
+public class RegisterData
+{
+    public string? firstName { get; set; }
+    public string? lastName { get; set; }
+    public string? thirdName { get; set; }
+    public string? group { get; set; }
+    public string? subject { get; set; }
+    public string? role { get; set; }
 }

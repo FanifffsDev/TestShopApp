@@ -23,7 +23,7 @@ public class AuthRequired() : Attribute, IActionFilter
         
         string token = authHeader.ToString().Substring("tma ".Length);
 
-        (bool isVerified, TgUser user) = TgAuthUtils.VerifyInitData(token);
+        (bool isVerified, AuthUser user) = TgAuthUtils.VerifyInitData(token);
 
         if (!isVerified || user == null)
         {
