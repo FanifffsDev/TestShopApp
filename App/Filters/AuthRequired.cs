@@ -13,8 +13,6 @@ public class AuthRequired() : Attribute, IActionFilter
     {
         var headers = context.HttpContext.Request.Headers;
 
-        Console.WriteLine("auth filter has triggered");
-
         if (!headers.TryGetValue("authorization", out StringValues authHeader))
         {
             context.Result = new RedirectResult("/home");
@@ -31,7 +29,7 @@ public class AuthRequired() : Attribute, IActionFilter
             return;
         }
 
-        context.HttpContext.Items["User"] = user;
+        context.HttpContext.Items["AuthUser"] = user;
     }
 
     public void OnActionExecuted(ActionExecutedContext context)

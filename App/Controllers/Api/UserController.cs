@@ -40,7 +40,7 @@ public class UserController(IUserRepo userRepo) : ControllerBase
     [AuthRequired]
     public async Task<IActionResult> Register([FromBody] RegisterData data)
     {
-        AuthUser authUser = Request.HttpContext.Items["User"] as AuthUser;
+        AuthUser authUser = Request.HttpContext.Items["AuthUser"] as AuthUser;
         
         if(authUser == null)
             return BadRequest();
@@ -69,7 +69,7 @@ public class UserController(IUserRepo userRepo) : ControllerBase
 
         if (res.success)
         {
-            return new ObjectResult(ApiResponse.Ok().WithField("redirectTo", "/home"))
+            return new ObjectResult(ApiResponse.Ok().WithField("redirectTo", "/registration"))
             {
                 StatusCode = (int)HttpStatusCode.OK,
                 ContentTypes = { "application/json" }          
@@ -83,6 +83,32 @@ public class UserController(IUserRepo userRepo) : ControllerBase
                 ContentTypes = { "application/json" }          
             };
         }
+    }
+
+    
+    [Route("me")]
+    [HttpGet]
+    [AuthRequired]
+    public async Task<IActionResult> Me()
+    {
+        AuthUser authUser = Request.HttpContext.Items["AuthUser"] as AuthUser;
+        
+        var res = await _userRepo.GetUser(authUser.Id);
+
+        if (!res.success)
+        {
+            return new ObjectResult(ApiResponse.Fail().WithField("reason", res.message).WithField("redirectTo", "/registration"))
+            {
+                StatusCode = (int)HttpStatusCode.NotFound,
+                ContentTypes = { "application/json" }          
+            };
+        }
+
+        return new ObjectResult(ApiResponse.Ok().WithField("user", res.Value))
+        {
+            StatusCode = (int)HttpStatusCode.OK,
+            ContentTypes = { "application/json" }          
+        };
     }
 }
 
