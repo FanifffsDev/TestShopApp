@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Primitives;
 using TestShopApp.Common.Data;
@@ -7,7 +7,7 @@ using TestShopApp.Telegram.Utils;
 namespace TestShopApp.App.Filters;
 
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
-public class AuthRequired() : Attribute, IActionFilter
+public class RegistrationRequired() : Attribute, IActionFilter
 {
     public void OnActionExecuting(ActionExecutingContext context)
     {
@@ -18,12 +18,18 @@ public class AuthRequired() : Attribute, IActionFilter
             context.Result = new RedirectResult("/home");
             return;
         }
-        
+
         string token = authHeader.ToString().Substring("tma ".Length);
 
-        (bool isVerified, AuthUser? user) = TgAuthUtils.VerifyInitData(token);
+        (bool isVerified, AuthUser? user, bool isRegistered) = TgAuthUtils.VerifyExtendedInitData(token);
 
-        if (!isVerified || user == null)
+        if (!isVerified || user == null )
+        {
+            context.Result = new UnauthorizedResult();
+            return;
+        }
+
+        if (!isRegistered)
         {
             context.Result = new UnauthorizedResult();
             return;

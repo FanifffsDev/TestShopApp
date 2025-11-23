@@ -1,25 +1,35 @@
-using System.Net;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
+using System.Net;
 using TestShopApp.App.Filters;
+using TestShopApp.App.Models;
 using TestShopApp.Common.Data;
 using TestShopApp.Common.Repo;
+using TestShopApp.Common.Utils;
 using TestShopApp.Telegram.Utils;
 
 namespace TestShopApp.App.Controllers.Api;
 
 [ApiController]
 [Route("api/v1/users")]
-public class UserController(IUserRepo userRepo) : ControllerBase
+public class UserController(IUserRepo userRepo, IMapper mapper) : ControllerBase
 {
     private readonly IUserRepo _userRepo = userRepo;
+    private readonly IMapper _mapper = mapper;
     
     [Route("bake")]
     [HttpPost]
     public async Task<IActionResult> Bake([FromBody] TelegramInitDataRaw data)
     {
-        (bool isVerified, AuthUser user) = TgAuthUtils.VerifyInitData(data.initData);
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
 
-        if (!isVerified)
+        (bool isVerified, AuthUser authUser) = TgAuthUtils.VerifyInitData(data.initData);
+
+        if (!isVerified || authUser == null)
         {
             return new ObjectResult(ApiResponse.Fail())
             {
@@ -28,22 +38,29 @@ public class UserController(IUserRepo userRepo) : ControllerBase
             };
         }
         
-        Response.Headers["Authorization"] = "tma " + data.initData;
+        var res = await _userRepo.GetUser(authUser.Id);
+
+        Response.Headers["Authorization"] = "tma " + TgAuthUtils.GenerateExtendedInitData(authUser, res.Value != null);
+
         return Ok(new
         {
-            sucess = true
+            sucess = true,
+            isRegistered = res.Value is not null
         });
     }
 
     [Route("register")]
     [HttpPost]
     [AuthRequired]
-    public async Task<IActionResult> Register([FromBody] RegisterData data)
+    public async Task<IActionResult> Register([FromBody] RegisterUserDto data)
     {
-        AuthUser authUser = Request.HttpContext.Items["AuthUser"] as AuthUser;
-        
-        if(authUser == null)
-            return BadRequest();
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+
+        AuthUser authUser = Request.HttpContext.Items["AuthUser"] as AuthUser;        
         
         var res = await _userRepo.GetUser(authUser.Id);
 
@@ -56,23 +73,44 @@ public class UserController(IUserRepo userRepo) : ControllerBase
             };
         }
 
-        res = await _userRepo.AddUser(new User
+        if (data.Role == "student")
         {
-            Id = authUser.Id,
-            FirstName = data.firstName,
-            LastName = data.lastName,
-            ThirdName = data.thirdName,
-            Group = data.group,
-            Subject = data.subject,
-            Role = data.role,
-        });
+            res = await _userRepo.AddUser(new User
+            {
+                Id = authUser.Id,
+                FirstName = data.FirstName,
+                LastName = data.LastName,
+                Group = data.Group,
+                Role = "student",
+                CreatedAt = DateTimeUtils.GetCurrentTimeFormatted(),
+                UpdatedAt = DateTimeUtils.GetCurrentTimeFormatted()
+            });
+        }
+        else if (data.Role == "teacher")
+        {
+            res = await _userRepo.AddUser(new User
+            {
+                Id = authUser.Id,
+                FirstName = data.FirstName,
+                LastName = data.LastName,
+                ThirdName = data.ThirdName,
+                Subject = data.Subject,
+                Role = "teacher",
+                CreatedAt = DateTimeUtils.GetCurrentTimeFormatted(),
+                UpdatedAt = DateTimeUtils.GetCurrentTimeFormatted()
+            });
+        }
+        else
+        {
+            res = new ExecutionResult<User>(false, null, "Incorrect role");
+        }
 
         if (res.success)
         {
-            return new ObjectResult(ApiResponse.Ok().WithField("redirectTo", "/registration"))
+            return new ObjectResult(ApiResponse.Ok().WithField("redirectTo", "/"))
             {
                 StatusCode = (int)HttpStatusCode.OK,
-                ContentTypes = { "application/json" }          
+                ContentTypes = { "application/json" }
             };
         }
         else
@@ -80,7 +118,7 @@ public class UserController(IUserRepo userRepo) : ControllerBase
             return new ObjectResult(ApiResponse.Fail().WithField("reason", res.message))
             {
                 StatusCode = (int)HttpStatusCode.BadRequest,
-                ContentTypes = { "application/json" }          
+                ContentTypes = { "application/json" }
             };
         }
     }
@@ -88,7 +126,7 @@ public class UserController(IUserRepo userRepo) : ControllerBase
     
     [Route("me")]
     [HttpGet]
-    [AuthRequired]
+    [RegistrationRequired]
     public async Task<IActionResult> Me()
     {
         AuthUser authUser = Request.HttpContext.Items["AuthUser"] as AuthUser;
@@ -110,20 +148,43 @@ public class UserController(IUserRepo userRepo) : ControllerBase
             ContentTypes = { "application/json" }          
         };
     }
+
+    [Route("update")]
+    [HttpPut]
+    [RegistrationRequired]
+    public async Task<IActionResult> Update([FromBody] UpdateUserDto user)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        AuthUser authUser = Request.HttpContext.Items["AuthUser"] as AuthUser;
+
+        var res = await _userRepo.UpdateUser(authUser.Id, user, _mapper);
+
+        if (!res.success)
+        {
+            return new ObjectResult(ApiResponse.Fail().WithField("reason", res.message))
+            {
+                StatusCode = (int)HttpStatusCode.Conflict,
+                ContentTypes = { "application/json" }
+            };
+        }
+
+        return new ObjectResult(ApiResponse.Ok())
+        {
+            StatusCode = (int)HttpStatusCode.OK,
+            ContentTypes = { "application/json" }
+        };
+    }
 }
 
 public class TelegramInitDataRaw
 {
-    public string? initData { get; set; }
-    public long timestamp { get; set; }
-}
+    [Required]
+    public string initData { get; set; }
 
-public class RegisterData
-{
-    public string? firstName { get; set; }
-    public string? lastName { get; set; }
-    public string? thirdName { get; set; }
-    public string? group { get; set; }
-    public string? subject { get; set; }
-    public string? role { get; set; }
+    [Required]
+    public long timestamp { get; set; }
 }

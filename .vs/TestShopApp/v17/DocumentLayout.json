@@ -1,85 +1,134 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\",
+  "WorkspaceRootPath": "K:\\Programming\\Work\\Web\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web-apps\\testshopapp\\app\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:app\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web\\app\\models\\updateuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:app\\models\\updateuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web-apps\\testshopapp\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web\\app\\models\\registeruserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:app\\models\\registeruserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web-apps\\testshopapp\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web\\app\\controllers\\api\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:app\\controllers\\api\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web-apps\\testshopapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web-apps\\testshopapp\\common\\data\\executionresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web\\common\\data\\executionresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:common\\data\\executionresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web-apps\\testshopapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web-apps\\testshopapp\\testshopapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web\\testshopapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:testshopapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web-apps\\testshopapp\\botworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:botworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web\\common\\repo\\iuserrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:common\\repo\\iuserrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web-apps\\testshopapp\\testshopapp.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web\\common\\repo\\userrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:common\\repo\\userrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web\\common\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:common\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web\\app\\profiles\\userprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:app\\profiles\\userprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web\\common\\data\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:common\\data\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web\\app\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:app\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web\\app\\filters\\authrequired.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:app\\filters\\authrequired.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web\\app\\apiresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:app\\apiresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web\\app\\filters\\registrationrequired.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:app\\filters\\registrationrequired.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web\\common\\utils\\datetimeutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:common\\utils\\datetimeutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web\\common\\data\\authuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:common\\data\\authuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web\\testshopapp.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
       "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:testshopapp.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web-apps\\testshopapp\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web-apps\\testshopapp\\common\\repo\\tguserrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:common\\repo\\tguserrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web\\telegram\\utils\\tgauthutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:telegram\\utils\\tgauthutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web-apps\\testshopapp\\telegram\\handlers\\messagehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web\\botworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:botworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web\\telegram\\handlers\\messagehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:telegram\\handlers\\messagehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web-apps\\testshopapp\\telegram\\handlers\\updatehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web\\telegram\\handlers\\updatehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:telegram\\handlers\\updatehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web-apps\\testshopapp\\telegram\\utils\\botutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web\\telegram\\utils\\botutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:telegram\\utils\\botutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\romch\\AppData\\Local\\SourceServer\\d6935d8ab4285cd8663d37d7b15dd7e7ce96c8ea9b45e19e4d859ff680fa9d51\\src\\libraries\\System.Private.CoreLib\\src\\System\\StartupHookProvider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web-apps\\testshopapp\\telegram\\commands\\startcmd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web\\telegram\\commands\\startcmd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:telegram\\commands\\startcmd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web-apps\\testshopapp\\telegram\\commands\\icommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web\\telegram\\commands\\icommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:telegram\\commands\\icommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web-apps\\testshopapp\\common\\data\\tguser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:common\\data\\tguser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web-apps\\testshopapp\\common\\repo\\itguserrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:common\\repo\\itguserrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web-apps\\testshopapp\\telegram\\commands\\commandprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|k:\\programming\\work\\web\\telegram\\commands\\commandprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{63070049-0D30-4C1B-9FD9-88B3E26D389E}|TestShopApp.csproj|solutionrelative:telegram\\commands\\commandprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|K:\\Programming\\Work\\Web-apps\\TestShopApp\\Common\\Repo\\TgUserRepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|K:\\Programming\\Work\\Web-apps\\TestShopApp\\Common\\Repo\\ITgUserRepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|K:\\Programming\\Work\\Web-apps\\TestShopApp\\Common\\Data\\TgUser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -89,7 +138,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 309,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -109,58 +158,223 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
               "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UserProfile.cs",
+              "DocumentMoniker": "K:\\Programming\\Work\\Web\\App\\Profiles\\UserProfile.cs",
+              "RelativeDocumentMoniker": "App\\Profiles\\UserProfile.cs",
+              "ToolTip": "K:\\Programming\\Work\\Web\\App\\Profiles\\UserProfile.cs",
+              "RelativeToolTip": "App\\Profiles\\UserProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T20:27:39.464Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "index.html",
-              "DocumentMoniker": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\wwwroot\\index.html",
-              "RelativeDocumentMoniker": "wwwroot\\index.html",
-              "ToolTip": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\wwwroot\\index.html",
-              "RelativeToolTip": "wwwroot\\index.html",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-10-28T19:53:59.337Z",
+              "Title": "RegisterUserDto.cs",
+              "DocumentMoniker": "K:\\Programming\\Work\\Web\\App\\Models\\RegisterUserDto.cs",
+              "RelativeDocumentMoniker": "App\\Models\\RegisterUserDto.cs",
+              "ToolTip": "K:\\Programming\\Work\\Web\\App\\Models\\RegisterUserDto.cs",
+              "RelativeToolTip": "App\\Models\\RegisterUserDto.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAqwBIAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T19:29:43.161Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "DateTimeUtils.cs",
+              "DocumentMoniker": "K:\\Programming\\Work\\Web\\Common\\Utils\\DateTimeUtils.cs",
+              "RelativeDocumentMoniker": "Common\\Utils\\DateTimeUtils.cs",
+              "ToolTip": "K:\\Programming\\Work\\Web\\Common\\Utils\\DateTimeUtils.cs",
+              "RelativeToolTip": "Common\\Utils\\DateTimeUtils.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T19:26:39.219Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UpdateUserDto.cs",
+              "DocumentMoniker": "K:\\Programming\\Work\\Web\\App\\Models\\UpdateUserDto.cs",
+              "RelativeDocumentMoniker": "App\\Models\\UpdateUserDto.cs",
+              "ToolTip": "K:\\Programming\\Work\\Web\\App\\Models\\UpdateUserDto.cs",
+              "RelativeToolTip": "App\\Models\\UpdateUserDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T19:16:20.017Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "K:\\Programming\\Work\\Web\\Common\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Common\\Data\\AppDbContext.cs",
+              "ToolTip": "K:\\Programming\\Work\\Web\\Common\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Common\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T08:51:46.993Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "K:\\Programming\\Work\\Web\\App\\Controllers\\Api\\UserController.cs",
+              "RelativeDocumentMoniker": "App\\Controllers\\Api\\UserController.cs",
+              "ToolTip": "K:\\Programming\\Work\\Web\\App\\Controllers\\Api\\UserController.cs",
+              "RelativeToolTip": "App\\Controllers\\Api\\UserController.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAAADYAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T20:19:19.809Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "AuthUser.cs",
+              "DocumentMoniker": "K:\\Programming\\Work\\Web\\Common\\Data\\AuthUser.cs",
+              "RelativeDocumentMoniker": "Common\\Data\\AuthUser.cs",
+              "ToolTip": "K:\\Programming\\Work\\Web\\Common\\Data\\AuthUser.cs",
+              "RelativeToolTip": "Common\\Data\\AuthUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T20:18:36.31Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "User.cs",
+              "DocumentMoniker": "K:\\Programming\\Work\\Web\\Common\\Data\\User.cs",
+              "RelativeDocumentMoniker": "Common\\Data\\User.cs",
+              "ToolTip": "K:\\Programming\\Work\\Web\\Common\\Data\\User.cs",
+              "RelativeToolTip": "Common\\Data\\User.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwBsAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T20:12:15.235Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ApiResponse.cs",
+              "DocumentMoniker": "K:\\Programming\\Work\\Web\\App\\ApiResponse.cs",
+              "RelativeDocumentMoniker": "App\\ApiResponse.cs",
+              "ToolTip": "K:\\Programming\\Work\\Web\\App\\ApiResponse.cs",
+              "RelativeToolTip": "App\\ApiResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T20:08:17.208Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IUserRepo.cs",
+              "DocumentMoniker": "K:\\Programming\\Work\\Web\\Common\\Repo\\IUserRepo.cs",
+              "RelativeDocumentMoniker": "Common\\Repo\\IUserRepo.cs",
+              "ToolTip": "K:\\Programming\\Work\\Web\\Common\\Repo\\IUserRepo.cs",
+              "RelativeToolTip": "Common\\Repo\\IUserRepo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T20:06:47.589Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserRepo.cs",
+              "DocumentMoniker": "K:\\Programming\\Work\\Web\\Common\\Repo\\UserRepo.cs",
+              "RelativeDocumentMoniker": "Common\\Repo\\UserRepo.cs",
+              "ToolTip": "K:\\Programming\\Work\\Web\\Common\\Repo\\UserRepo.cs",
+              "RelativeToolTip": "Common\\Repo\\UserRepo.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAuwEEAAABeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T20:07:00.56Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AuthRequired.cs",
+              "DocumentMoniker": "K:\\Programming\\Work\\Web\\App\\Filters\\AuthRequired.cs",
+              "RelativeDocumentMoniker": "App\\Filters\\AuthRequired.cs",
+              "ToolTip": "K:\\Programming\\Work\\Web\\App\\Filters\\AuthRequired.cs",
+              "RelativeToolTip": "App\\Filters\\AuthRequired.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBcAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T19:10:19.335Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "RegistrationRequired.cs",
+              "DocumentMoniker": "K:\\Programming\\Work\\Web\\App\\Filters\\RegistrationRequired.cs",
+              "RelativeDocumentMoniker": "App\\Filters\\RegistrationRequired.cs",
+              "ToolTip": "K:\\Programming\\Work\\Web\\App\\Filters\\RegistrationRequired.cs",
+              "RelativeToolTip": "App\\Filters\\RegistrationRequired.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAkAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T19:10:36.111Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "TgAuthUtils.cs",
+              "DocumentMoniker": "K:\\Programming\\Work\\Web\\Telegram\\Utils\\TgAuthUtils.cs",
+              "RelativeDocumentMoniker": "Telegram\\Utils\\TgAuthUtils.cs",
+              "ToolTip": "K:\\Programming\\Work\\Web\\Telegram\\Utils\\TgAuthUtils.cs",
+              "RelativeToolTip": "Telegram\\Utils\\TgAuthUtils.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAwwDsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T19:02:41.242Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
               "Title": "launchSettings.json",
-              "DocumentMoniker": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\Properties\\launchSettings.json",
+              "DocumentMoniker": "K:\\Programming\\Work\\Web\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Properties\\launchSettings.json",
-              "ToolTip": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\Properties\\launchSettings.json",
+              "ToolTip": "K:\\Programming\\Work\\Web\\Properties\\launchSettings.json",
               "RelativeToolTip": "Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-10-28T19:44:15.132Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 18,
               "Title": "appsettings.Development.json",
-              "DocumentMoniker": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\appsettings.Development.json",
+              "DocumentMoniker": "K:\\Programming\\Work\\Web\\appsettings.Development.json",
               "RelativeDocumentMoniker": "appsettings.Development.json",
-              "ToolTip": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\appsettings.Development.json",
+              "ToolTip": "K:\\Programming\\Work\\Web\\appsettings.Development.json",
               "RelativeToolTip": "appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-10-28T19:39:37.994Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 20,
               "Title": "appsettings.json",
-              "DocumentMoniker": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\appsettings.json",
+              "DocumentMoniker": "K:\\Programming\\Work\\Web\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\appsettings.json",
+              "ToolTip": "K:\\Programming\\Work\\Web\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -169,33 +383,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 30,
               "Title": "TgUserRepo.cs",
               "DocumentMoniker": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\Common\\Repo\\TgUserRepo.cs",
-              "RelativeDocumentMoniker": "Common\\Repo\\TgUserRepo.cs",
+              "RelativeDocumentMoniker": "..\\Web-apps\\TestShopApp\\Common\\Repo\\TgUserRepo.cs",
               "ToolTip": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\Common\\Repo\\TgUserRepo.cs",
-              "RelativeToolTip": "Common\\Repo\\TgUserRepo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAJAAAAAAAAAA==",
+              "RelativeToolTip": "..\\Web-apps\\TestShopApp\\Common\\Repo\\TgUserRepo.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T19:37:16.513Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-28T19:37:16.513Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 11,
               "Title": "HomeController.cs",
-              "DocumentMoniker": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\App\\Controllers\\HomeController.cs",
+              "DocumentMoniker": "K:\\Programming\\Work\\Web\\App\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "App\\Controllers\\HomeController.cs",
-              "ToolTip": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\App\\Controllers\\HomeController.cs",
+              "ToolTip": "K:\\Programming\\Work\\Web\\App\\Controllers\\HomeController.cs",
               "RelativeToolTip": "App\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAuwBIAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-28T19:22:10.024Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 26,
               "Title": "StartupHookProvider.cs",
               "DocumentMoniker": "C:\\Users\\romch\\AppData\\Local\\SourceServer\\d6935d8ab4285cd8663d37d7b15dd7e7ce96c8ea9b45e19e4d859ff680fa9d51\\src\\libraries\\System.Private.CoreLib\\src\\System\\StartupHookProvider.cs",
               "ToolTip": "C:\\Users\\romch\\AppData\\Local\\SourceServer\\d6935d8ab4285cd8663d37d7b15dd7e7ce96c8ea9b45e19e4d859ff680fa9d51\\src\\libraries\\System.Private.CoreLib\\src\\System\\StartupHookProvider.cs [\u0422\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u0435\u043D\u0438\u0435]",
@@ -206,11 +418,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 25,
               "Title": "BotUtils.cs",
-              "DocumentMoniker": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\Telegram\\Utils\\BotUtils.cs",
+              "DocumentMoniker": "K:\\Programming\\Work\\Web\\Telegram\\Utils\\BotUtils.cs",
               "RelativeDocumentMoniker": "Telegram\\Utils\\BotUtils.cs",
-              "ToolTip": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\Telegram\\Utils\\BotUtils.cs",
+              "ToolTip": "K:\\Programming\\Work\\Web\\Telegram\\Utils\\BotUtils.cs",
               "RelativeToolTip": "Telegram\\Utils\\BotUtils.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -219,50 +431,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 27,
               "Title": "StartCmd.cs",
-              "DocumentMoniker": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\Telegram\\Commands\\StartCmd.cs",
+              "DocumentMoniker": "K:\\Programming\\Work\\Web\\Telegram\\Commands\\StartCmd.cs",
               "RelativeDocumentMoniker": "Telegram\\Commands\\StartCmd.cs",
-              "ToolTip": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\Telegram\\Commands\\StartCmd.cs",
+              "ToolTip": "K:\\Programming\\Work\\Web\\Telegram\\Commands\\StartCmd.cs",
               "RelativeToolTip": "Telegram\\Commands\\StartCmd.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAIBZwBIAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-28T19:02:51.363Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 31,
               "Title": "ITgUserRepo.cs",
               "DocumentMoniker": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\Common\\Repo\\ITgUserRepo.cs",
-              "RelativeDocumentMoniker": "Common\\Repo\\ITgUserRepo.cs",
+              "RelativeDocumentMoniker": "..\\Web-apps\\TestShopApp\\Common\\Repo\\ITgUserRepo.cs",
               "ToolTip": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\Common\\Repo\\ITgUserRepo.cs",
-              "RelativeToolTip": "Common\\Repo\\ITgUserRepo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAjAAAAAAAAAA==",
+              "RelativeToolTip": "..\\Web-apps\\TestShopApp\\Common\\Repo\\ITgUserRepo.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T19:02:05.608Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-28T19:02:05.608Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 32,
               "Title": "TgUser.cs",
               "DocumentMoniker": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\Common\\Data\\TgUser.cs",
-              "RelativeDocumentMoniker": "Common\\Data\\TgUser.cs",
+              "RelativeDocumentMoniker": "..\\Web-apps\\TestShopApp\\Common\\Data\\TgUser.cs",
               "ToolTip": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\Common\\Data\\TgUser.cs",
-              "RelativeToolTip": "Common\\Data\\TgUser.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "RelativeToolTip": "..\\Web-apps\\TestShopApp\\Common\\Data\\TgUser.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T18:59:34.253Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-28T18:59:34.253Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "ExecutionResult.cs",
-              "DocumentMoniker": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\Common\\Data\\ExecutionResult.cs",
+              "DocumentMoniker": "K:\\Programming\\Work\\Web\\Common\\Data\\ExecutionResult.cs",
               "RelativeDocumentMoniker": "Common\\Data\\ExecutionResult.cs",
-              "ToolTip": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\Common\\Data\\ExecutionResult.cs",
+              "ToolTip": "K:\\Programming\\Work\\Web\\Common\\Data\\ExecutionResult.cs",
               "RelativeToolTip": "Common\\Data\\ExecutionResult.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -271,11 +479,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 28,
               "Title": "ICommand.cs",
-              "DocumentMoniker": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\Telegram\\Commands\\ICommand.cs",
+              "DocumentMoniker": "K:\\Programming\\Work\\Web\\Telegram\\Commands\\ICommand.cs",
               "RelativeDocumentMoniker": "Telegram\\Commands\\ICommand.cs",
-              "ToolTip": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\Telegram\\Commands\\ICommand.cs",
+              "ToolTip": "K:\\Programming\\Work\\Web\\Telegram\\Commands\\ICommand.cs",
               "RelativeToolTip": "Telegram\\Commands\\ICommand.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -284,11 +492,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 29,
               "Title": "CommandProvider.cs",
-              "DocumentMoniker": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\Telegram\\Commands\\CommandProvider.cs",
+              "DocumentMoniker": "K:\\Programming\\Work\\Web\\Telegram\\Commands\\CommandProvider.cs",
               "RelativeDocumentMoniker": "Telegram\\Commands\\CommandProvider.cs",
-              "ToolTip": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\Telegram\\Commands\\CommandProvider.cs",
+              "ToolTip": "K:\\Programming\\Work\\Web\\Telegram\\Commands\\CommandProvider.cs",
               "RelativeToolTip": "Telegram\\Commands\\CommandProvider.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -297,11 +505,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 23,
               "Title": "MessageHandler.cs",
-              "DocumentMoniker": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\Telegram\\Handlers\\MessageHandler.cs",
+              "DocumentMoniker": "K:\\Programming\\Work\\Web\\Telegram\\Handlers\\MessageHandler.cs",
               "RelativeDocumentMoniker": "Telegram\\Handlers\\MessageHandler.cs",
-              "ToolTip": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\Telegram\\Handlers\\MessageHandler.cs",
+              "ToolTip": "K:\\Programming\\Work\\Web\\Telegram\\Handlers\\MessageHandler.cs",
               "RelativeToolTip": "Telegram\\Handlers\\MessageHandler.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -310,24 +518,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "TestShopApp",
-              "DocumentMoniker": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\TestShopApp.csproj",
+              "DocumentIndex": 4,
+              "Title": "TestShopApp.csproj",
+              "DocumentMoniker": "K:\\Programming\\Work\\Web\\TestShopApp.csproj",
               "RelativeDocumentMoniker": "TestShopApp.csproj",
-              "ToolTip": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\TestShopApp.csproj",
+              "ToolTip": "K:\\Programming\\Work\\Web\\TestShopApp.csproj",
               "RelativeToolTip": "TestShopApp.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2025-10-28T18:49:44.846Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 24,
               "Title": "UpdateHandler.cs",
-              "DocumentMoniker": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\Telegram\\Handlers\\UpdateHandler.cs",
+              "DocumentMoniker": "K:\\Programming\\Work\\Web\\Telegram\\Handlers\\UpdateHandler.cs",
               "RelativeDocumentMoniker": "Telegram\\Handlers\\UpdateHandler.cs",
-              "ToolTip": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\Telegram\\Handlers\\UpdateHandler.cs",
+              "ToolTip": "K:\\Programming\\Work\\Web\\Telegram\\Handlers\\UpdateHandler.cs",
               "RelativeToolTip": "Telegram\\Handlers\\UpdateHandler.cs",
               "ViewState": "AgIAADgAAAAAAAAAAADwv1QAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -336,37 +544,37 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 21,
               "Title": "BotWorker.cs",
-              "DocumentMoniker": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\BotWorker.cs",
+              "DocumentMoniker": "K:\\Programming\\Work\\Web\\BotWorker.cs",
               "RelativeDocumentMoniker": "BotWorker.cs",
-              "ToolTip": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\BotWorker.cs",
+              "ToolTip": "K:\\Programming\\Work\\Web\\BotWorker.cs",
               "RelativeToolTip": "BotWorker.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAABLAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-28T18:49:55.333Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "Program.cs",
-              "DocumentMoniker": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\Program.cs",
+              "DocumentMoniker": "K:\\Programming\\Work\\Web\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\Program.cs",
+              "ToolTip": "K:\\Programming\\Work\\Web\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAACgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-28T18:38:33.11Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 17,
               "Title": "TestShopApp.http",
-              "DocumentMoniker": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\TestShopApp.http",
+              "DocumentMoniker": "K:\\Programming\\Work\\Web\\TestShopApp.http",
               "RelativeDocumentMoniker": "TestShopApp.http",
-              "ToolTip": "K:\\Programming\\Work\\Web-apps\\TestShopApp\\TestShopApp.http",
+              "ToolTip": "K:\\Programming\\Work\\Web\\TestShopApp.http",
               "RelativeToolTip": "TestShopApp.http",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",

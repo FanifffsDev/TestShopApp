@@ -1,4 +1,5 @@
 using DotNetEnv;
+using Microsoft.EntityFrameworkCore;
 using Telegram.Bot;
 using TestShopApp;
 using TestShopApp.App.Middlewares;
@@ -6,9 +7,6 @@ using TestShopApp.Common.Data;
 using TestShopApp.Common.Repo;
 using TestShopApp.Telegram.Commands;
 using TestShopApp.Telegram.Handlers;
-
-using Microsoft.EntityFrameworkCore;
-using TestShopApp.App;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,10 +22,15 @@ builder.Services.AddSingleton<ITelegramBotClient>(provider =>
     return new TelegramBotClient(token);
 });
 
-builder.Services.AddDbContext<AppDbContext>(opt => 
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-builder.Services.AddScoped<IUserRepo, UserRepo>(); //////////////////////////////
+builder.Services.AddDbContext<AppDbContext>(opt =>
+    opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
+
+builder.Services.AddScoped<IUserRepo, UserRepo>();
 
 builder.Services.AddScoped<UpdateHandler>();
 builder.Services.AddScoped<MessageHandler>();
