@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.Net;
 using TestShopApp.App.Filters;
-using TestShopApp.App.Models;
+using TestShopApp.App.Models.User;
 using TestShopApp.Common.Data;
 using TestShopApp.Common.Repo;
 using TestShopApp.Common.Utils;
@@ -80,7 +80,6 @@ public class UserController(IUserRepo userRepo, IMapper mapper) : ControllerBase
                 Id = authUser.Id,
                 FirstName = data.FirstName,
                 LastName = data.LastName,
-                Group = data.Group,
                 Role = "student",
                 CreatedAt = DateTimeUtils.GetCurrentTimeFormatted(),
                 UpdatedAt = DateTimeUtils.GetCurrentTimeFormatted()
@@ -109,7 +108,7 @@ public class UserController(IUserRepo userRepo, IMapper mapper) : ControllerBase
         {
             return new ObjectResult(ApiResponse.Ok().WithField("redirectTo", "/"))
             {
-                StatusCode = (int)HttpStatusCode.OK,
+                StatusCode = (int)HttpStatusCode.Created,
                 ContentTypes = { "application/json" }
             };
         }

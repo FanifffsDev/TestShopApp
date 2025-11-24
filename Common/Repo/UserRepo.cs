@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using TestShopApp.App.Models;
+using TestShopApp.App.Models.User;
 using TestShopApp.Common.Data;
 using TestShopApp.Common.Utils;
 
@@ -44,7 +44,7 @@ namespace TestShopApp.Common.Repo
 
                     _context.Entry(existingUser).Property(x => x.FirstName).IsModified = true;
                     _context.Entry(existingUser).Property(x => x.LastName).IsModified = true;
-                    _context.Entry(existingUser).Property(x => x.Group).IsModified = true;
+                    //_context.Entry(existingUser).Property(x => x.Group).IsModified = true;
                 }
                 else if(existingUser.Role == "teacher")
                 {
@@ -66,6 +66,11 @@ namespace TestShopApp.Common.Repo
                 //_logger.LogError(ex, "Ошибка при обновлении пользователя {UserId}", userId);
                 return new ExecutionResult<User>(false, null, "Error while updating data");
             }
+        }
+
+        public Task<ExecutionResult<User>> MakeHeadmanOf(long userId, string groupNumber)
+        {
+            throw new NotImplementedException();
         }
 
         private async Task<bool> SaveChangesAsync()

@@ -18,6 +18,9 @@ public class User
         
     [JsonPropertyName("group")]
     public string? Group { get; set; }
+    
+    [JsonPropertyName("headmanOf")]
+    public string? HeadmenOf { get; set; }
         
     [JsonPropertyName("subject")]
     public string? Subject { get; set; }

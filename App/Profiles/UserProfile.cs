@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.IdentityModel.Tokens;
-using TestShopApp.App.Models;
+using TestShopApp.App.Models.User;
 using TestShopApp.Common.Data;
 
 namespace TestShopApp.App.Profiles

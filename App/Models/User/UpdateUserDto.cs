@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TestShopApp.App.Models
+namespace TestShopApp.App.Models.User
 {
-    public class RegisterUserDto
+    public class UpdateUserDto
     {
         [Required(ErrorMessage = "Имя обязательно")]
         [StringLength(20, MinimumLength = 2, ErrorMessage = "Имя должно быть от 2 до 20 символов")]
@@ -18,16 +18,12 @@ namespace TestShopApp.App.Models
         [RegularExpression(@"^[a-zA-Zа-яА-ЯёЁ\s]*$", ErrorMessage = "Отчество может содержать только буквы")]
         public string? ThirdName { get; set; }
 
-        [StringLength(6, ErrorMessage = "Номер группы не должен превышать 6 символов")]
-        [RegularExpression(@"^[0-9]*$", ErrorMessage = "Группа может содержать только цифры")]
-        public string? Group { get; set; }
+        //[StringLength(6, ErrorMessage = "Номер группы не должен превышать 6 символов")]
+        //[RegularExpression(@"^[0-9]*$", ErrorMessage = "Группа может содержать только цифры")]
+        //public string? Group { get; set; }
 
         [StringLength(100, ErrorMessage = "Название предмета не должно превышать 100 символов")]
         [RegularExpression(@"^[a-zA-Zа-яА-ЯёЁ\s]*$", ErrorMessage = "Предмет может содержать только буквы")]
         public string? Subject { get; set; }
-
-        [Required(ErrorMessage = "Роль обязательна")]
-        [RegularExpression(@"^(student|teacher)$", ErrorMessage = "Роль должна быть либо 'student', либо 'teacher'")]
-        public string Role { get; set; }
     }
 }
