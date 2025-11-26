@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using TestShopApp.Common.Data;
@@ -11,9 +12,11 @@ using TestShopApp.Common.Data;
 namespace TestShopApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251124184121_AddGroupRelation")]
+    partial class AddGroupRelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,25 +28,20 @@ namespace TestShopApp.Migrations
             modelBuilder.Entity("TestShopApp.Common.Data.Group", b =>
                 {
                     b.Property<string>("Number")
-                        .HasColumnType("text")
-                        .HasAnnotation("Relational:JsonPropertyName", "number");
+                        .HasColumnType("text");
 
                     b.Property<DateTimeOffset>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasAnnotation("Relational:JsonPropertyName", "createdAt");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text")
-                        .HasAnnotation("Relational:JsonPropertyName", "name");
+                        .HasColumnType("text");
 
                     b.Property<long>("OwnerId")
-                        .HasColumnType("bigint")
-                        .HasAnnotation("Relational:JsonPropertyName", "ownerId");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTimeOffset>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasAnnotation("Relational:JsonPropertyName", "updatedAt");
+                        .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Number");
 
@@ -60,8 +58,7 @@ namespace TestShopApp.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
                     b.Property<DateTimeOffset>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasAnnotation("Relational:JsonPropertyName", "createdAt");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -70,9 +67,9 @@ namespace TestShopApp.Migrations
 
                     b.Property<string>("GroupNumber")
                         .HasColumnType("text")
-                        .HasAnnotation("Relational:JsonPropertyName", "groupNumber");
+                        .HasAnnotation("Relational:JsonPropertyName", "group");
 
-                    b.Property<string>("HeadmanOf")
+                    b.Property<string>("HeadmenOf")
                         .HasColumnType("text")
                         .HasAnnotation("Relational:JsonPropertyName", "headmanOf");
 
@@ -95,15 +92,11 @@ namespace TestShopApp.Migrations
                         .HasAnnotation("Relational:JsonPropertyName", "thirdName");
 
                     b.Property<DateTimeOffset>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasAnnotation("Relational:JsonPropertyName", "updatedAt");
+                        .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 
                     b.HasIndex("GroupNumber");
-
-                    b.HasIndex("HeadmanOf")
-                        .IsUnique();
 
                     b.ToTable("Users");
                 });
@@ -113,11 +106,6 @@ namespace TestShopApp.Migrations
                     b.HasOne("TestShopApp.Common.Data.Group", "Group")
                         .WithMany("Students")
                         .HasForeignKey("GroupNumber")
-                        .OnDelete(DeleteBehavior.SetNull);
-
-                    b.HasOne("TestShopApp.Common.Data.Group", null)
-                        .WithOne()
-                        .HasForeignKey("TestShopApp.Common.Data.User", "HeadmanOf")
                         .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Group");

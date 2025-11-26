@@ -31,6 +31,7 @@ AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 
 builder.Services.AddScoped<IUserRepo, UserRepo>();
+builder.Services.AddScoped<IGroupRepo, GroupRepo>();
 
 builder.Services.AddScoped<UpdateHandler>();
 builder.Services.AddScoped<MessageHandler>();

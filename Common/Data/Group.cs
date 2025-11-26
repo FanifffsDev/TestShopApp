@@ -1,21 +1,26 @@
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace TestShopApp.Common.Data;
 
 public class Group
 {
-    [JsonPropertyName("ownerId")]
-    public long OwnerId { get; set; }
-    
+    [Key]
     [JsonPropertyName("number")]
     public string Number { get; set; }
-        
+
+    [JsonPropertyName("ownerId")]
+    public long OwnerId { get; set; }
+
     [JsonPropertyName("name")]
     public string Name { get; set; }
-    
-    [JsonPropertyName("users")]
-    public List<User> Users { get; set; }
 
+    [JsonIgnore]
+    public ICollection<User> Students { get; set; } = new List<User>();
+
+    [JsonPropertyName("createdAt")]
     public DateTimeOffset CreatedAt { get; set; }
+
+    [JsonPropertyName("updatedAt")]
     public DateTimeOffset UpdatedAt { get; set; }
 }

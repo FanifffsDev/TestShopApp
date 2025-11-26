@@ -16,11 +16,14 @@ public class User
     [JsonPropertyName("thirdName")]
     public string? ThirdName { get; set; }
         
-    [JsonPropertyName("group")]
-    public string? Group { get; set; }
-    
+    [JsonPropertyName("groupNumber")]
+    public string? GroupNumber { get; set; }
+
+    [JsonIgnore]
+    public Group? Group { get; set; }
+
     [JsonPropertyName("headmanOf")]
-    public string? HeadmenOf { get; set; }
+    public string? HeadmanOf { get; set; }
         
     [JsonPropertyName("subject")]
     public string? Subject { get; set; }
@@ -28,6 +31,9 @@ public class User
     [JsonPropertyName("role")]
     public string Role { get; set; }
 
+    [JsonPropertyName("createdAt")]
     public DateTimeOffset CreatedAt { get; set; }
+
+    [JsonPropertyName("updatedAt")]
     public DateTimeOffset UpdatedAt { get; set; }
 }

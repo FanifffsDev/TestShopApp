@@ -5,6 +5,7 @@ using TestShopApp.App.Filters;
 using TestShopApp.App.Models.Group;
 using TestShopApp.Common.Data;
 using TestShopApp.Common.Repo;
+using TestShopApp.Common.Utils;
 
 namespace TestShopApp.App.Controllers.Api;
 
@@ -17,7 +18,7 @@ public class GroupController(IUserRepo userRepo, IGroupRepo groupRepo, IMapper m
     private readonly IGroupRepo _groupRepo  = groupRepo;
     private readonly IMapper _mapper = mapper;
     
-    [HttpGet]
+    [HttpPost]
     [Route("create")]
     public async Task<IActionResult> Create([FromBody] CreateGroupDto groupData)
     {
@@ -39,9 +40,18 @@ public class GroupController(IUserRepo userRepo, IGroupRepo groupRepo, IMapper m
             };
         }
 
-        if (userRes.Value.HeadmenOf == null)
+        if (userRes.Value.HeadmanOf == null)
         {
-            var res = await _groupRepo.CreateGroup(groupData.Number, groupData.Name, authUser.Id);
+            var group = new Group()
+            {
+                Name = groupData.Name,
+                Number = groupData.Number,
+                OwnerId = authUser.Id,
+                CreatedAt = DateTimeUtils.GetCurrentTimeFormatted(),
+                UpdatedAt = DateTimeUtils.GetCurrentTimeFormatted()
+            };
+
+            var res = await _groupRepo.CreateGroup(group);
 
             if (!res.success)
             {
@@ -85,7 +95,7 @@ public class GroupController(IUserRepo userRepo, IGroupRepo groupRepo, IMapper m
     [Route("get")]
     public async Task<IActionResult> Get()
     {
-        var res = await _groupRepo.GetGroups();
+        /*var res = await _groupRepo.GetGroups();
 
         if (!res.success)
         {
@@ -102,7 +112,9 @@ public class GroupController(IUserRepo userRepo, IGroupRepo groupRepo, IMapper m
         {
             StatusCode = (int)HttpStatusCode.OK,
             ContentTypes = { "application/json" }          
-        };
+        };*/
+
+        return BadRequest();
     }
     
     [HttpGet]
@@ -113,7 +125,7 @@ public class GroupController(IUserRepo userRepo, IGroupRepo groupRepo, IMapper m
         
         var user = await _userRepo.GetUser(authUser.Id);
 
-        if (user.Value.Group == null)
+        if (user.Value.GroupNumber == null)
         {
             return new ObjectResult(ApiResponse.Fail().WithField("reason", "User doesn't have any group"))
             {
@@ -122,7 +134,7 @@ public class GroupController(IUserRepo userRepo, IGroupRepo groupRepo, IMapper m
             };
         }
         
-        var group = await _groupRepo.GetGroup(user.Value.Group);
+        var group = await _groupRepo.GetGroup(user.Value.GroupNumber);
 
         if (!group.success)
         {
@@ -134,10 +146,46 @@ public class GroupController(IUserRepo userRepo, IGroupRepo groupRepo, IMapper m
         }
 
         ;
-        return new ObjectResult(ApiResponse.Ok().WithField("group", group))
+        return new ObjectResult(ApiResponse.Ok().WithField("group", group.Value))
         {
             StatusCode = (int)HttpStatusCode.OK,
             ContentTypes = { "application/json" }          
+        };
+    }
+
+    [HttpGet]
+    [Route("mine/members")]
+    public async Task<IActionResult> Members()
+    {
+        AuthUser authUser = Request.HttpContext.Items["AuthUser"] as AuthUser;
+
+        var user = await _userRepo.GetUser(authUser.Id);
+
+        if (user.Value.GroupNumber == null)
+        {
+            return new ObjectResult(ApiResponse.Fail().WithField("reason", "User doesn't have any group"))
+            {
+                StatusCode = (int)HttpStatusCode.NotFound,
+                ContentTypes = { "application/json" }
+            };
+        }
+
+        var group = await _groupRepo.GetGroupMembers(user.Value.GroupNumber);
+
+        if (!group.success)
+        {
+            return new ObjectResult(ApiResponse.Fail().WithField("reason", group.message))
+            {
+                StatusCode = (int)HttpStatusCode.NotFound,
+                ContentTypes = { "application/json" }
+            };
+        }
+
+        ;
+        return new ObjectResult(ApiResponse.Ok().WithField("members", group.Value))
+        {
+            StatusCode = (int)HttpStatusCode.OK,
+            ContentTypes = { "application/json" }
         };
     }
 }

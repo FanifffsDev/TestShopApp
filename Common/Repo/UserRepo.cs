@@ -68,9 +68,15 @@ namespace TestShopApp.Common.Repo
             }
         }
 
-        public Task<ExecutionResult<User>> MakeHeadmanOf(long userId, string groupNumber)
+        public async Task<ExecutionResult<User>> MakeHeadmanOf(long userId, string groupNumber)
         {
-            throw new NotImplementedException();
+            var existingUser = await _context.Users
+                .FirstOrDefaultAsync(u => u.Id == userId);
+
+            existingUser.HeadmanOf = groupNumber;
+            existingUser.GroupNumber = groupNumber;
+
+            return new ExecutionResult<User>(await SaveChangesAsync(), existingUser);
         }
 
         private async Task<bool> SaveChangesAsync()
