@@ -1,7 +1,8 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
-using TestShopApp.Common.Data;
+using System.Text.Json.Serialization;
+using TestShopApp.Domain.Base;
 
 namespace TestShopApp.Telegram.Utils
 {
@@ -16,7 +17,7 @@ namespace TestShopApp.Telegram.Utils
 
             var parsedData = ParseQuery(initDataRaw);
 
-            if (!parsedData.TryGetValue("hash", out string? receivedHash) || parsedData.Count != 5)
+            if (!parsedData.TryGetValue("hash", out string? receivedHash) || parsedData.Count < 5)
                 return (false, null);
 
             parsedData.Remove("hash");
@@ -39,7 +40,10 @@ namespace TestShopApp.Telegram.Utils
                 try
                 {
                     var data = JsonSerializer.Deserialize<AuthUser>(parsedData["user"],
-                        new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+                        new JsonSerializerOptions { 
+                            PropertyNameCaseInsensitive = true,
+                            UnmappedMemberHandling = JsonUnmappedMemberHandling.Skip
+                        });
 
                     if (data == null)
                         return (false, null);

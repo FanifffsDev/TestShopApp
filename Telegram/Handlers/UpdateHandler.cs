@@ -1,7 +1,7 @@
 ﻿using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
-using TestShopApp.Common.Repo;
+using TestShopApp.App.Interfaces;
 using TestShopApp.Telegram.Commands;
 
 namespace TestShopApp.Telegram.Handlers

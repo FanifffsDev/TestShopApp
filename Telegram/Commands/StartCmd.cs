@@ -1,6 +1,6 @@
 ﻿using Telegram.Bot;
 using Telegram.Bot.Types;
-using TestShopApp.Common.Data;
+using TestShopApp.Domain.Base;
 
 namespace TestShopApp.Telegram.Commands
 {

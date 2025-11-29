@@ -2,16 +2,16 @@
 
 namespace TestShopApp.App.Models.User
 {
-    public class RegisterUserDto
+    public class UpdateUserProfileDto
     {
         [Required(ErrorMessage = "Имя обязательно")]
         [StringLength(20, MinimumLength = 2, ErrorMessage = "Имя должно быть от 2 до 20 символов")]
-        [RegularExpression(@"^[a-zA-Zа-яА-ЯёЁ]+$", ErrorMessage = "Имя может содержать только буквы")]
+        [RegularExpression(@"^[a-zA-Zа-яА-ЯёЁ]*$", ErrorMessage = "Имя может содержать только буквы")]
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "Фамилия обязательна")]
         [StringLength(20, MinimumLength = 2, ErrorMessage = "Фамилия должна быть от 2 до 20 символов")]
-        [RegularExpression(@"^[a-zA-Zа-яА-ЯёЁ]+$", ErrorMessage = "Фамилия может содержать только буквы")]
+        [RegularExpression(@"^[a-zA-Zа-яА-ЯёЁ]*$", ErrorMessage = "Фамилия может содержать только буквы")]
         public string LastName { get; set; }
 
         [StringLength(20, MinimumLength = 2, ErrorMessage = "Отчество должно быть от 2 до 20 символов")]
@@ -21,9 +21,5 @@ namespace TestShopApp.App.Models.User
         [StringLength(100, ErrorMessage = "Название предмета не должно превышать 100 символов")]
         [RegularExpression(@"^[a-zA-Zа-яА-ЯёЁ\s]*$", ErrorMessage = "Предмет может содержать только буквы")]
         public string? Subject { get; set; }
-
-        [Required(ErrorMessage = "Роль обязательна")]
-        [RegularExpression(@"^(student|teacher)$", ErrorMessage = "Роль должна быть либо 'student', либо 'teacher'")]
-        public string Role { get; set; }
     }
 }

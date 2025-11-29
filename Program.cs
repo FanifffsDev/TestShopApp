@@ -2,9 +2,12 @@ using DotNetEnv;
 using Microsoft.EntityFrameworkCore;
 using Telegram.Bot;
 using TestShopApp;
-using TestShopApp.App.Middlewares;
-using TestShopApp.Common.Data;
-using TestShopApp.Common.Repo;
+using TestShopApp.Api.Interefaces;
+using TestShopApp.Api.Middlewares;
+using TestShopApp.App.Interfaces;
+using TestShopApp.App.Services;
+using TestShopApp.Infrastructure;
+using TestShopApp.Infrastructure.Repo;
 using TestShopApp.Telegram.Commands;
 using TestShopApp.Telegram.Handlers;
 
@@ -33,13 +36,21 @@ AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 builder.Services.AddScoped<IUserRepo, UserRepo>();
 builder.Services.AddScoped<IGroupRepo, GroupRepo>();
 
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IGroupService, GroupService>();
+
+builder.Services.AddLogging(logging =>
+{
+    logging.ClearProviders();
+    logging.AddConsole();
+    logging.AddDebug();
+    logging.SetMinimumLevel(LogLevel.Information);
+});
+
 builder.Services.AddScoped<UpdateHandler>();
 builder.Services.AddScoped<MessageHandler>();
-
 builder.Services.AddTransient<ICommand, StartCmd>();
-
 builder.Services.AddSingleton<CommandProvider>();
-
 builder.Services.AddHostedService<BotWorker>();
 
 

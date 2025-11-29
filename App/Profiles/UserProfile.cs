@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.IdentityModel.Tokens;
 using TestShopApp.App.Models.User;
-using TestShopApp.Common.Data;
+using TestShopApp.Domain.Base;
 
 namespace TestShopApp.App.Profiles
 {
@@ -9,7 +9,8 @@ namespace TestShopApp.App.Profiles
     {
         public UserProfile()
         {
-            CreateMap<UpdateUserDto, User>();
+            CreateMap<UpdateUserProfileDto, User>();
+            CreateMap<User, UserDto>().ReverseMap();
         }
     }
 }
