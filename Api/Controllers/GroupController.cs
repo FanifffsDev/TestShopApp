@@ -98,4 +98,13 @@ public class GroupController(IGroupService groupService) : Controller
         var result = await _groupService.RemoveMember(authUser!.Id, memberId, ct);
         return (IResult)result;
     }
+
+    [HttpPost("delete")]
+    public async Task<IResult> Delete(CancellationToken ct)
+    {
+        AuthUser? authUser = Request.HttpContext.Items["AuthUser"] as AuthUser;
+
+        var result = await _groupService.DeleteGroup(authUser!.Id, ct);
+        return (IResult)result;
+    }
 }

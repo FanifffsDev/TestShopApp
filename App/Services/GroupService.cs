@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
-using Telegram.Bot.Types;
 using TestShopApp.Api.Interefaces;
 using TestShopApp.App.Interfaces;
 using TestShopApp.App.Models.Group;
-using TestShopApp.App.ReturnTypes;
 using TestShopApp.App.Utils;
 using TestShopApp.Domain.Base;
 using static TestShopApp.App.ReturnTypes.ResultImport;
@@ -11,9 +9,9 @@ using IResult = TestShopApp.App.ReturnTypes.IResult;
 
 namespace TestShopApp.App.Services
 {
-    public class GroupService(ILogger<GroupService> logger, 
-        IGroupRepo groupRepo, 
-        IUserRepo userRepo, 
+    public class GroupService(ILogger<GroupService> logger,
+        IGroupRepo groupRepo,
+        IUserRepo userRepo,
         IUserService userService, IMapper mapper) : IGroupService
     {
         private readonly ILogger<GroupService> _logger = logger;
@@ -22,7 +20,7 @@ namespace TestShopApp.App.Services
         private readonly IUserRepo _userRepo = userRepo;
         private readonly IMapper _mapper = mapper;
 
-        private readonly string _botUsername = Environment.GetEnvironmentVariable("BOT_USERNAME") 
+        private readonly string _botUsername = Environment.GetEnvironmentVariable("BOT_USERNAME")
                 ?? throw new InvalidOperationException("BOT_USERNAME environment variable is not set");
 
         public async Task<IResult> CreateGroup(long callerId, CreateGroupDto createGroupDto, CancellationToken ct)
@@ -207,7 +205,7 @@ namespace TestShopApp.App.Services
                     return InvalidArgument("Invalid invite code");
                 }
 
-                
+
                 var group = await _groupRepo.GetGroup(groupNumber, ct);
                 if (group == null)
                 {
@@ -374,30 +372,44 @@ namespace TestShopApp.App.Services
             {
                 _logger.LogInformation("User {UserId} attempting to remove group member {MemberId}", headmanId, memberId);
 
-                var groupResult = await GetUserGroup(headmanId, ct);
-                if (groupResult.IsFailure)
+                if (headmanId == memberId)
                 {
-                    _logger.LogWarning("Group with {UserId} headman not found", headmanId);
-                    return groupResult;
+                    _logger.LogWarning("User {UserId} attempting to remove himself", headmanId);
+
+
+                    /////////////////////////////////////////////
+
+                    return InvalidArgument("Самый умный или что? Не нужно тут лазить");
+
+                    /////////////////////////////////////////////
+
+
                 }
 
-                var group = ((IResult<Group>)groupResult).Value;
+                var headmanResult = await _userService.GetUser(headmanId, ct);
+                if (headmanResult.IsFailure)
+                {
+                    _logger.LogWarning("Headman user {UserId} not found", headmanId);
+                    return headmanResult;
+                }
 
-                var userResult = await _userService.GetUser(memberId, ct);
+                var headman = headmanResult.Value!;
 
-                if (userResult.IsFailure)
+                var memberResult = await _userService.GetUser(memberId, ct);
+
+                if (memberResult.IsFailure)
                 {
                     _logger.LogWarning("User {UserId} not found", memberId);
-                    return userResult;
+                    return memberResult;
                 }
 
-                if(userResult.Value!.GroupNumber != group.Number)
+                if (memberResult.Value!.GroupNumber != headman.HeadmanOf)
                 {
                     _logger.LogWarning("User {MemberId} is not a member of user {HeadmanId} group", headmanId, memberId);
                     return Forbidden($"User {memberId} is not a member of user {headmanId} group");
                 }
 
-                var user = userResult.Value;
+                var user = memberResult.Value;
 
                 user.GroupNumber = null;
 
@@ -423,16 +435,60 @@ namespace TestShopApp.App.Services
                 return Internal($"Error while removing user from group: {ex.Message}");
             }
         }
+
+        public async Task<IResult> DeleteGroup(long headmanId, CancellationToken ct)
+        {
+            try
+            {
+                _logger.LogInformation("User {CallerId} attempting to delete group",
+                    headmanId);
+
+                var userResult = await _userService.GetUser(headmanId, ct);
+
+                if (userResult.IsFailure)
+                {
+                    _logger.LogWarning("User {CallerId} not found when deleting group", headmanId);
+                    return userResult;
+                }
+
+                if (userResult.Value!.HeadmanOf == null)
+                {
+                    _logger.LogWarning("User {CallerId} does not moderate any group",
+                        headmanId);
+                    return Unauthorized("Only headman can delete group");
+                }
+
+                var groupNumber = userResult.Value.HeadmanOf;
+
+                var groupResult = await _groupRepo.GetGroup(groupNumber, ct);
+
+                if (groupResult == null)
+                {
+                    _logger.LogWarning("Group {GroupNumber} not found when deleting by user {CallerId}",
+                        groupNumber, headmanId);
+
+                    return NotFound("Group not gound");
+                }
+
+                _groupRepo.DeleteGroup(groupResult);
+
+                var deleted = await _groupRepo.SaveChangesAsync(ct);
+
+                if (!deleted)
+                {
+                    _logger.LogError("Failed to delete group {GroupNumber} by user {CallerId}",
+                        groupNumber, headmanId);
+                    return Internal("Failed to delete group");
+                }
+
+                return Ok();
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error occurred while deleting group by user {CallerId}", headmanId);
+                return Internal($"Error while deleting group: {ex.Message}");
+            }
+        }
     }
-
-
-
-    /*public Task DeleteGroup(long callerId, string groupNumber, CancellationToken ct)
-    {
-        throw new NotImplementedException();
-    }*/
-    /*Task<IResult> IGroupService.DeleteGroup(long callerId, string groupNumber, CancellationToken ct)
-    {
-        throw new NotImplementedException();
-    }*/
 }
