@@ -18,9 +18,13 @@ namespace TestShopApp.Api.Interefaces
 
 
         Task<IResult> DeleteGroup(long headmanId, CancellationToken ct);
+
         //Task<IResult> Update(long callerId, UpdateGroup createGroupDto, CancellationToken ct);
         //TODO Дать возможность старосте обновлять информацию о группе т е название.
         //Возможно дать разные приколы для кастомизации, чтобы дать кастомную роль старосте, участникам группы и тд.
         //Изменить визуал группы, т е цвета, фон и т д.
+
+
+        Task<IResult> TransferOwnership(long headmanId, long newHeadmanId, CancellationToken ct);
     }
 }

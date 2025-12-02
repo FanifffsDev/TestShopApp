@@ -1,7 +1,10 @@
 ﻿using AutoMapper;
+using AutoMapper.Execution;
+using Telegram.Bot.Types;
 using TestShopApp.Api.Interefaces;
 using TestShopApp.App.Interfaces;
 using TestShopApp.App.Models.Group;
+using TestShopApp.App.ReturnTypes;
 using TestShopApp.App.Utils;
 using TestShopApp.Domain.Base;
 using static TestShopApp.App.ReturnTypes.ResultImport;
@@ -132,14 +135,14 @@ namespace TestShopApp.App.Services
 
                 var membersDto = _mapper.Map<IEnumerable<GroupMemberDto>>(groupMembers);
 
-                bool allowInvitation = !string.IsNullOrEmpty(user.HeadmanOf) &&
+                bool isHeadman = !string.IsNullOrEmpty(user.HeadmanOf) &&
                                        user.HeadmanOf == user.GroupNumber;
 
                 _logger.LogInformation("Successfully fetched group {GroupNumber} information for user {UserId}",
                     user.GroupNumber, userId);
 
                 return Ok(group).WithField("group", _mapper.Map<SafeGroupDto>(group))
-                    .WithField("members", membersDto).WithFieldIf("allowInvitation", allowInvitation, allowInvitation);
+                    .WithField("members", membersDto).WithFieldIf("isHeadman", isHeadman, isHeadman);
             }
             catch (Exception ex)
             {
@@ -488,6 +491,92 @@ namespace TestShopApp.App.Services
             {
                 _logger.LogError(ex, "Error occurred while deleting group by user {CallerId}", headmanId);
                 return Internal($"Error while deleting group: {ex.Message}");
+            }
+        }
+
+        public async Task<IResult> TransferOwnership(long headmanId, long newHeadmanId, CancellationToken ct)
+        {
+            try
+            {
+                _logger.LogInformation("User {UserId} is attempting to transfer group ownership to member {NewHeadmanId}",
+                        headmanId, newHeadmanId);
+
+                if (headmanId == newHeadmanId)
+                {
+                    _logger.LogInformation("User {UserId} is attempting to transfer group ownership to yourself",
+                           headmanId);
+                    return InvalidArgument("It is not possible to transfer group owhership to yourself");
+                }
+
+                var headmanResult = await _userService.GetUser(headmanId, ct);
+                if (headmanResult.IsFailure)
+                {
+                    _logger.LogWarning("Headman user {UserId} not found", headmanId);
+                    return headmanResult;
+                }
+
+                var headman = headmanResult.Value!;
+
+                if (string.IsNullOrEmpty(headman.HeadmanOf) ||
+                    string.IsNullOrEmpty(headman.GroupNumber))
+                {
+                    _logger.LogWarning("User {UserId} is not a headman", headmanId);
+                    return Forbidden("You are not a headman of the group");
+                }
+
+                var memberResult = await _userService.GetUser(newHeadmanId, ct);
+
+                if (memberResult.IsFailure)
+                {
+                    _logger.LogWarning("User {UserId} not found", newHeadmanId);
+                    return memberResult;
+                }
+
+                if (memberResult.Value!.GroupNumber != headman.HeadmanOf)
+                {
+                    _logger.LogWarning("User {MemberId} is not a member of user {HeadmanId} group", headmanId, newHeadmanId);
+                    return Forbidden($"User {newHeadmanId} is not a member of user {headmanId} group");
+                }
+
+                var user = memberResult.Value;
+
+                string groupNumber = headman.HeadmanOf!;
+                headman.HeadmanOf = null;
+
+
+                var updateResult = await _userService.UpdateUser(headman, ct);
+
+                if (updateResult.IsFailure)
+                {
+                    _logger.LogError("Failed to update HeadmanOf filed for user {UserId}",
+                        headmanId);
+                    return updateResult;
+                }
+
+                var transferResult = await _userService.MakeHeadmanOf(newHeadmanId, groupNumber, ct);
+                if (transferResult.IsFailure)
+                {
+                    _logger.LogError("Error while updating headman for group {GroupId}",
+                        groupNumber);
+
+                    await _userService.MakeHeadmanOf(headmanId, groupNumber, ct);
+
+
+                    return transferResult;
+                }
+
+                _logger.LogInformation("Headman successfully transferred in group {GroupId}. Old: {OldHeadman}, New: {NewHeadman}",
+                    groupNumber, headmanId, newHeadmanId);
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex,
+                    "Unexpected error while transferring ownership from user {UserId} to user {NewHeadmanId}",
+                    headmanId, newHeadmanId);
+
+                return Internal($"Error while transfering group ownership");
             }
         }
     }

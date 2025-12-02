@@ -107,4 +107,13 @@ public class GroupController(IGroupService groupService) : Controller
         var result = await _groupService.DeleteGroup(authUser!.Id, ct);
         return (IResult)result;
     }
+
+    [HttpPost("grant")]
+    public async Task<IResult> Grant([FromBody] long memberId, CancellationToken ct)
+    {
+        AuthUser? authUser = Request.HttpContext.Items["AuthUser"] as AuthUser;
+
+        var result = await _groupService.TransferOwnership(authUser!.Id, memberId, ct);
+        return (IResult)result;
+    }
 }
