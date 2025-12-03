@@ -576,7 +576,31 @@ namespace TestShopApp.App.Services
                     "Unexpected error while transferring ownership from user {UserId} to user {NewHeadmanId}",
                     headmanId, newHeadmanId);
 
-                return Internal($"Error while transfering group ownership");
+                return Internal($"Error while transferring group ownership");
+            }
+        }
+        
+        public async Task<IResult> Update(long callerId, UpdateGroupDto createGroupDto, CancellationToken ct)
+        {
+            try
+            {
+                var userResult = await _userService.GetUser(callerId, ct);
+                if (userResult.IsFailure)
+                {
+                    return userResult;
+                }
+
+                if (userResult.Value!.HeadmanOf == null)
+                {
+                    return NotFound("You are not a headman");
+                }
+
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return Internal($"Error occurred while updating group");
             }
         }
     }

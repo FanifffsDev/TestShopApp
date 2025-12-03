@@ -1,4 +1,4 @@
-﻿using TestShopApp.App.Models;s
+﻿using TestShopApp.App.Models;
 using TestShopApp.App.Models.User;
 using TestShopApp.App.ReturnTypes;
 using TestShopApp.Domain.Base;

@@ -1,8 +1,4 @@
 ﻿using AutoMapper;
-using Azure;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Net;
 using TestShopApp.Api.Interefaces;
 using TestShopApp.App.Interfaces;
 using TestShopApp.App.Models;

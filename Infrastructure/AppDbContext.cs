@@ -7,6 +7,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
 {
     public DbSet<User> Users { get; set; }
     public DbSet<Group> Groups { get; set; }
+    public DbSet<GroupStyles> GroupStyles { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -14,7 +15,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
         .HasOne(u => u.Group)
         .WithMany(g => g.Students)
         .HasForeignKey(u => u.GroupNumber)
-        .OnDelete(DeleteBehavior.SetNull); // При удалении группы GroupNumber = null
+        .OnDelete(DeleteBehavior.SetNull);
 
         modelBuilder.Entity<User>()
             .HasIndex(u => u.GroupNumber);
@@ -22,7 +23,6 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
         modelBuilder.Entity<User>()
             .HasIndex(u => u.HeadmanOf);
 
-        // Связь User -> Group (через HeadmanOf - староста группы)
         modelBuilder.Entity<User>()
             .HasOne<Group>()
             .WithOne()
